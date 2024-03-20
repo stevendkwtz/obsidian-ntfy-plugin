@@ -43,8 +43,8 @@ const context = await esbuild.context({
 });
 
 if (watch) {
+    await context.watch();
+} else {
     await context.rebuild();
     process.exit(0);
-} else {
-    await context.watch();
 }
