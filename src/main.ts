@@ -77,8 +77,8 @@ export default class NTFYPlugin extends Plugin {
         this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
 
         // Let's warn the user the first time they enable the plugin
-        if (!this.settings.warned_user) this.settings.warned_user = true;
-        new Notice('Please check your NTFY settings');
+        // if (!this.settings.warned_user) this.settings.warned_user = true;
+        // new Notice('Please check your NTFY settings');
         await this.saveSettings();
     }
 
