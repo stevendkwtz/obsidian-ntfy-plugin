@@ -18,6 +18,13 @@ if [ ! -d "$plugin_dir" ]; then
     mkdir "$plugin_dir"
 fi
 
-cp -fr main.js "$plugin_dir"
-cp -fr manifest.json "$plugin_dir"
-cp -fr styles.css "$plugin_dir"
+{ # try
+    cp -fr main.js "$plugin_dir"
+    cp -fr manifest.json "$plugin_dir"
+    cp -fr styles.css "$plugin_dir"
+
+    printf "Success!\nCopied main.js, manifest.json, and styles.css to %s" "$plugin_dir"
+} || { # catch
+    echo "Error! Something went wrong while copying over local build files"
+    return
+}
